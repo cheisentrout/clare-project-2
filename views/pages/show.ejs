@@ -9,6 +9,7 @@
       <% if (student.img !== "") { %>
         <img src="<%=student.img%> alt="Student picture" />
       <% } %>
+      <%# Here is where I'd want two buttons... one says "view details" and the other says "view portfolio" - both are currently display: none. On click function for view details adds the display: block property to the details div. On click function for view portfolio div adds display block to THAT, and display none to the details div. This could all be written in my vanilla js file...%>
       <p>Date of Birth: <%=student.dob%></p>
       <p>Parents: <%=student.parents%></p>
       <p>Enrollment Status: <%=student.enrollment%></p>

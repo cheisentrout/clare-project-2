@@ -2,6 +2,8 @@
 
 ## Overview
 
+Link to live site: https://clare-project-2.herokuapp.com/class
+
 ## Technology used
 
 ## User Stories and Wireframes
