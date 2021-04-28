@@ -4,7 +4,14 @@
   <body>
 
     <div class="container">
+      <%- include ('../partials/header.ejs') %>
       <h1><%=student.name%></h1>
+      <img id="img" src="<%=student.img%> alt="Student picture" />
+      <p>DOB: <%=student.dob%></p>
+      <p>Parents: <%=student.parents%></p>
+      <p>Enrollment Status: <%=student.enrollment%></p>
+      <p>Allergies: <%=student.allergies%></p>
+      <p>Notes: <%=student.notes%></p>
     </div>
 
   </body>

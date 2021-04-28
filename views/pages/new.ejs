@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%- include ('../partials/head.ejs') %>
+  <body>
+
+    <div class="container">
+      <h1>Enroll New Student</h1>
+      <form action="/class" method="POST">
+        Name:
+          <input type="text" name="name" placeholder="Name" />
+        Student Photo:
+          <input type="text" name="img" placeholder="Image Link">
+        Date of Birth:
+          <input type="date" name="dob" placeholder="Date of birth" />
+        Address:
+          <input type="text" name="address" placeholder="Address">
+        Parents:
+          <input type="text" name="parents" placeholder="Parent/Caregiver Names" />
+        Allergies:
+          <input type="text" name="allergies" placeholder="Allergies">
+        Enrollment Status:
+          <input type="text" name="enrollment" placeholder="Full Day / Half Day" />
+        Notes:
+          <input type="textarea" name="notes" placeholder="Notes...">
+        <input type="submit" value="Enroll Student">
+      </form>
+    </div>
+
+  </body>
+</html>

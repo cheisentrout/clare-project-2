@@ -2,11 +2,12 @@
   GLOBAL STYLES
 =====================================================================*/
 
-img {
-  width: 100px;
-  height: auto;
+.img, #img {
+  width: 120px;
+  height: 120px;
+  border-radius: 60%;
+  object-fit: cover;
 }
-
 
 
 

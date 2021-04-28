@@ -4,12 +4,13 @@
   <body>
 
     <div class="container">
+      <%- include ('../partials/header.ejs') %>
       <h1>The Sunshine Room</h1>
       <ul>
         <% for (let i = 0; i < students.length; i++) { %>
           <a href="/class/<%=students[i]._id%>">
             <li>
-              <img src="<%=students[i].img%>" alt="Student picture" />
+              <img class="img" src="<%=students[i].img%>" alt="Student picture" />
               <h3><%=students[i].name%></h3>
             </li>
           </a>

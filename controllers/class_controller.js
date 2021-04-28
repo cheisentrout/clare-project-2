@@ -70,8 +70,8 @@ router.get('/seed', (req, res) => {
     ],
     (err, newStudents) => {
       console.log(newStudents);
-      res.send(newStudents)
-      // res.redirect('/class')
+      // res.send(newStudents)
+      res.redirect('/class')
     }
   )
 })
@@ -101,6 +101,23 @@ router.get('/', (req, res) => {
   // res.render('pages/index.ejs')
 })
 
+/*--------------------- NEW ---------------------*/
+
+router.get('/enroll', (req, res) => {
+  res.render(
+    'pages/new.ejs'
+  )
+})
+
+/*--------------------- POST --------------------*/
+
+router.post('/', (req, res) => {
+  Student.create(req.body, (err, newStudent) => {
+    console.log(req.body);
+    res.redirect('/')
+  })
+})
+
 /*-------------------- SHOW ---------------------*/
 
 router.get('/:id', (req, res) => {
@@ -114,5 +131,8 @@ router.get('/:id', (req, res) => {
     )
   })
 })
+
+/*-------------------- EDIT ---------------------*/
+
 
 module.exports = router
