@@ -68,16 +68,51 @@ router.get('/seed', (req, res) => {
         notes: 'Loves to "perform" for teachers and friends.'
       }
     ],
-    (err, newStudent) => {
-      res.redirect('/class')
+    (err, newStudents) => {
+      console.log(newStudents);
+      res.send(newStudents)
+      // res.redirect('/class')
     }
   )
+})
+
+
+/*------------------ JSON DATA -------------------*/
+
+router.get('/json', (req, res) => {
+  Student.find({}, (err, allStudents) => {
+    res.send(allStudents)
+  })
 })
 
 /*---------------- INDEX / HOME ------------------*/
 
 router.get('/', (req, res) => {
-  res.send('class index route set up')
+  // res.send('class index route set up')
+  Student.find({}, (err, allStudents) => {
+    // res.send(allStudents)
+    res.render(
+      'pages/index.ejs',
+      {
+        students: allStudents
+      }
+    )
+  })
+  // res.render('pages/index.ejs')
+})
+
+/*-------------------- SHOW ---------------------*/
+
+router.get('/:id', (req, res) => {
+  Student.findById(req.params.id, (err, foundStudent) => {
+    // res.send(foundStudent)
+    res.render(
+      'pages/show.ejs',
+      {
+        student: foundStudent
+      }
+    )
+  })
 })
 
 module.exports = router
