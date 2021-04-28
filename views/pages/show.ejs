@@ -12,6 +12,10 @@
       <p>Enrollment Status: <%=student.enrollment%></p>
       <p>Allergies: <%=student.allergies%></p>
       <p>Notes: <%=student.notes%></p>
+      <a href="/class/<%=student._id%>/edit" class="anchor-btn">Edit</a>
+      <form action="/class/<%=student._id%>?_method=DELETE" method="post">
+        <input type="submit" value="Unenroll">
+      </form>
     </div>
 
   </body>

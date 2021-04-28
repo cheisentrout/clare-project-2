@@ -134,5 +134,36 @@ router.get('/:id', (req, res) => {
 
 /*-------------------- EDIT ---------------------*/
 
+router.get('/:id/edit', (req, res) => {
+  Student.findById(req.params.id, (err, foundStudent) => {
+    console.log(foundStudent);
+    res.render(
+      'pages/edit.ejs',
+      {
+        student: foundStudent
+      }
+    )
+  })
+})
+
+/*------------- PUT (SEND UPDATES) --------------*/
+
+router.put('/:id', (req, res) => {
+  Student.findByIdAndUpdate(req.params.id, req.body, (err, updatedStudent) => {
+    console.log(req.body); // logs empty object
+    console.log(updatedStudent); //logs student without updates
+    //how to just send the updates directly to the student's show page?
+    res.redirect('/class')
+  })
+})
+
+/*------------------- DELETE --------------------*/
+
+router.delete('/:id', (req, res) => {
+  Student.findByIdAndRemove(req.params.id, (err, foundStudent) => {
+    res.redirect('/class')
+  })
+})
+
 
 module.exports = router
