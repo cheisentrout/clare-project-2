@@ -150,8 +150,11 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
   Student.findByIdAndUpdate(req.params.id, req.body, (err, updatedStudent) => {
-    console.log(req.body); // logs empty object
-    console.log(updatedStudent); //logs student without updates
+    if (req.body.name) {
+      console.log(req.body); // logs "null"
+    } else {
+      console.log(err);
+    }
     //how to just send the updates directly to the student's show page?
     res.redirect('/class')
   })

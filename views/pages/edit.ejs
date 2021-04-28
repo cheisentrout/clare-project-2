@@ -8,21 +8,21 @@
       <h1>Edit <%=student.name%></h1>
       <form action="/class/<%=student._id%>?_method=PUT" method="POST">
         Name:
-          <input type="text" value="<%=student.name%>" />
+          <input type="text" name="name" value="<%=student.name%>" />
         Student Photo:
-          <input type="text" value="<%=student.img%>">
+          <input type="text" name="img" value="<%=student.img%>">
         Date of Birth:
-          <input type="date" value="<%=student.dob%>" />
+          <input type="date" name="dob" value="<%=student.dob%>" />
         Address:
-          <input type="text" value="<%=student.address%>">
+          <input type="text" name="address" value="<%=student.address%>">
         Parents:
-          <input type="text" value="<%=student.parents%>" />
+          <input type="text" name="parents" value="<%=student.parents%>" />
         Allergies:
-          <input type="text" value="<%=student.allergies%>" />
+          <input type="text" name="allergies" value="<%=student.allergies%>" />
         Enrollment Status:
-          <input type="text" value="value="<%=student.enrollment%>"" />
+          <input type="text" name="enrollment" value="value="<%=student.enrollment%>"" />
         Notes:
-          <input type="textarea" value="<%=student.notes%>">
+          <input type="textarea" name="notes" value="<%=student.notes%>">
         <input type="submit" value="Submit Changes">
       </form>
     </div>
