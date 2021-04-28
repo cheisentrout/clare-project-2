@@ -10,7 +10,9 @@
         <% for (let i = 0; i < students.length; i++) { %>
           <a href="/class/<%=students[i]._id%>">
             <li>
-              <img class="img" src="<%=students[i].img%>" alt="Student picture" />
+              <% if (students[i].img !== "") { %>
+                <img class="img" src="<%=students[i].img%>" alt="Student picture" />
+              <% } %>
               <h3><%=students[i].name%></h3>
             </li>
           </a>
