@@ -5,7 +5,7 @@ const detailsBtn = document.getElementById('view-details')
 const portSection = document.getElementById('portfolio')
 const portfolioBtn = document.getElementById('view-portfolio')
 
-
+//GOAL: DRY THE HIDE/SHOW FUNCTION
 // const show = (elem) => {
 //   console.log('show ran');
 //   elem.style.display = 'block'
