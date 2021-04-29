@@ -1,18 +1,37 @@
 console.log('Static JS hooked up');
 
+/*=======================================================
+------------------ GLOBAL FUNCTIONS -------------------
+========================================================*/
+
+const toggleHidden = (elem) => {
+  elem.classList.toggle('hidden')
+  if (!elem.classList.contains('hidden')) {
+    elem.classList.add('visible')
+  }
+}
+
+// const viewOrHide = (elem, btn) => {
+//   if (elem.classList.contains('hidden')) {
+//     btn.innerText = btn.innerText
+//   } else {
+//     btn.innerText = "Hide"
+//   }
+// }
+
+/*=======================================================
+------------------ STUDENT SHOW PAGE -------------------
+========================================================*/
+
+/*-------------- Choose Details / Portfolio -------------*/
+
 const detailsSection = document.getElementById('details')
 const detailsBtn = document.getElementById('view-details')
 const portSection = document.getElementById('portfolio')
 const portfolioBtn = document.getElementById('view-portfolio')
 
-//GOAL: DRY THE HIDE/SHOW FUNCTION
-// const show = (elem) => {
-//   console.log('show ran');
-//   elem.style.display = 'block'
-// }
-
 detailsBtn.addEventListener('click', () => {
-  detailsSection.classList.toggle('hidden')
+  toggleHidden(detailsSection)
   if (!detailsSection.classList.contains('hidden')) {
     detailsBtn.innerText = 'Hide Details'
   } else {
@@ -21,10 +40,79 @@ detailsBtn.addEventListener('click', () => {
 })
 
 portfolioBtn.addEventListener('click', () => {
-  portSection.classList.toggle('hidden')
+  toggleHidden(portSection)
   if (!portSection.classList.contains('hidden')) {
     portfolioBtn.innerText = "Hide Portfolio"
   } else {
     portfolioBtn.innerText = "View Portfolio"
   }
 })
+
+/*------------- Choose Portfolio Section to View --------------*/
+
+const cognitiveBtn = document.getElementById('cognitive')
+const socioEmotionalBtn = document.getElementById('socioEmotional')
+const speechLangBtn = document.getElementById('speechLang')
+const fineMotorBtn = document.getElementById('fineMotor')
+const grossMotorBtn = document.getElementById('grossMotor')
+
+const displaySections = document.querySelectorAll('.display')
+console.log(displaySections); // returns a node list
+
+const cognitiveSection = document.getElementById('display-cognitive')
+const socioEmotionalSection = document.getElementById('display-socioEmotional')
+const speechLangSection = document.getElementById('display-speechLang')
+const fineMotorSection = document.getElementById('display-fineMotor')
+const grossMotorSection = document.getElementById('display-grossMotor')
+
+cognitiveBtn.addEventListener('click', () => {
+  // displaySections.forEach(node => {
+  //   if (node.classList.contains('visible')) {
+  //     console.log(node + ' is visible');
+  //   } else {
+  //     console.log('This node is not visible.');
+  //   }
+  // })
+  displaySections.forEach(node => {
+    if (node.classList.contains('visible')) {
+      node.classList.add('hidden')
+    }
+  })
+  toggleHidden(cognitiveSection)
+})
+
+socioEmotionalBtn.addEventListener('click', () => {
+  // displaySections.forEach(node => {
+  //   if (node.classList.contains('visible')) {
+  //     console.log(node + ' is visible');
+  //   } else {
+  //     console.log('This node is not visible.');
+  //   }
+  // })
+  displaySections.forEach(node => {
+    if (node.classList.contains('visible')) {
+      node.classList.add('hidden')
+    }
+  })
+  toggleHidden(socioEmotionalSection)
+})
+
+speechLangBtn.addEventListener('click', () => {
+  toggleHidden(speechLangSection)
+})
+
+fineMotorBtn.addEventListener('click', () => {
+  toggleHidden(fineMotorSection)
+})
+
+grossMotorBtn.addEventListener('click', () => {
+  toggleHidden(grossMotorSection)
+})
+
+//GOAL: DRY THE HIDE/SHOW FUNCTION
+// const show = (elem) => {
+//   console.log('show ran');
+//   elem.style.display = 'block'
+// }
+
+//each section is connected to a button, and the button should toggle whether or not the section displays
