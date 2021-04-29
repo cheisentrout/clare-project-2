@@ -6,15 +6,16 @@ console.log('Static JS hooked up');
 
 const toggleHidden = (elem) => {
   elem.classList.toggle('hidden')
-  if (!elem.classList.contains('hidden')) {
-    elem.classList.add('visible')
-  }
+  elem.classList.toggle('visible')
+  // if (!elem.classList.contains('hidden')) {
+  //   elem.classList.add('visible')
+  // }
 }
 
-const hideNotSelected = () => {
-  displaySections.forEach(node => {
-    if (node.classList.contains('visible')) {
-      node.classList.add('hidden')
+const hideNotSelected = (section) => {
+  section.forEach(elem => {
+    if (elem.classList.contains('visible')) {
+      elem.classList.add('hidden')
     }
   })
 }
@@ -31,77 +32,88 @@ const hideNotSelected = () => {
 ------------------ STUDENT SHOW PAGE -------------------
 ========================================================*/
 
-/*-------------- Choose Details / Portfolio -------------*/
+/*-------------- Choose Details or Portfolio -------------*/
 
 const detailsSection = document.getElementById('details')
 const detailsBtn = document.getElementById('view-details')
 const portSection = document.getElementById('portfolio')
 const portfolioBtn = document.getElementById('view-portfolio')
 
+const deetsOrPort = document.querySelectorAll('.main-area')
+
 detailsBtn.addEventListener('click', () => {
+  // hideNotSelected(deetsOrPort)
   toggleHidden(detailsSection)
-  if (!detailsSection.classList.contains('hidden')) {
-    detailsBtn.innerText = 'Hide Details'
-  } else {
-    detailsBtn.innerText = 'View Details'
+  if (detailsSection.classList.contains('visible')) {
+    detailsBtn.innerText = "Hide Details"
+  } else if (!detailsSection.classList.contains('visible')) {
+    detailsBtn.innerText = "View Details"
   }
+  //Add some CSS that tells you which button is selected!!!! Class of visible
 })
 
 portfolioBtn.addEventListener('click', () => {
+  // hideNotSelected(deetsOrPort)
   toggleHidden(portSection)
-  if (!portSection.classList.contains('hidden')) {
+  if (portSection.classList.contains('visible')) {
     portfolioBtn.innerText = "Hide Portfolio"
-  } else {
+  } else if (!portSection.classList.contains('visible')) {
     portfolioBtn.innerText = "View Portfolio"
   }
 })
 
 /*------------- Choose Portfolio Section to View --------------*/
 
+/*----- View Btns -----*/
+
 const cognitiveBtn = document.getElementById('cognitive')
 const socioEmotionalBtn = document.getElementById('socioEmotional')
 const speechLangBtn = document.getElementById('speechLang')
 const fineMotorBtn = document.getElementById('fineMotor')
 const grossMotorBtn = document.getElementById('grossMotor')
+const summaryBtn = document.getElementById('summary')
 
-const displaySections = document.querySelectorAll('.display')
-console.log(displaySections); // returns a node list
+/*---- All 5 Content Sections -----*/
+
+const devSections = document.querySelectorAll('.display')
+
+/*---- Each Developmental Section ----*/
 
 const cognitiveSection = document.getElementById('display-cognitive')
 const socioEmotionalSection = document.getElementById('display-socioEmotional')
 const speechLangSection = document.getElementById('display-speechLang')
 const fineMotorSection = document.getElementById('display-fineMotor')
 const grossMotorSection = document.getElementById('display-grossMotor')
+const summarySection = document.getElementById('display-summary')
+
+/*---- Buttons to hide or show sections based on clicked button -----*/
 
 cognitiveBtn.addEventListener('click', () => {
-  hideNotSelected()
+  hideNotSelected(devSections)
   toggleHidden(cognitiveSection)
 })
 
 socioEmotionalBtn.addEventListener('click', () => {
-  hideNotSelected()
+  hideNotSelected(devSections)
   toggleHidden(socioEmotionalSection)
 })
 
 speechLangBtn.addEventListener('click', () => {
-  hideNotSelected()
+  hideNotSelected(devSections)
   toggleHidden(speechLangSection)
 })
 
 fineMotorBtn.addEventListener('click', () => {
-  hideNotSelected()
+  hideNotSelected(devSections)
   toggleHidden(fineMotorSection)
 })
 
 grossMotorBtn.addEventListener('click', () => {
-  hideNotSelected()
+  hideNotSelected(devSections)
   toggleHidden(grossMotorSection)
 })
 
-//GOAL: DRY THE HIDE/SHOW FUNCTION
-// const show = (elem) => {
-//   console.log('show ran');
-//   elem.style.display = 'block'
-// }
-
-//each section is connected to a button, and the button should toggle whether or not the section displays
+summaryBtn.addEventListener('click', () => {
+  hideNotSelected(devSections)
+  toggleHidden(summarySection)
+})

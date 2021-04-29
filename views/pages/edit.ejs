@@ -5,6 +5,7 @@
 
     <div class="container">
       <%- include ('../partials/header.ejs') %>
+      <a href="/class/<%=student._id%>">Back</a>
       <h1>Edit <%=student.name%></h1>
       <form action="/class/<%=student._id%>?_method=PUT" method="POST">
         Name:

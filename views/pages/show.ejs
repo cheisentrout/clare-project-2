@@ -19,7 +19,7 @@
           <a href="/portfolio/<%=student._id%>" id="edit-portfolio">Edit Portfolio</a>
         </section>
 
-        <section id="details" class="hidden">
+        <section id="details" class="hidden main-area">
           <p>Date of Birth: <%=student.dob%></p>
           <p>Parents: <%=student.parents%></p>
           <p>Enrollment Status: <%=student.enrollment%></p>
@@ -31,13 +31,14 @@
           </form>
         </section>
 
-        <section id="portfolio" class="hidden">
+        <section id="portfolio" class="hidden main-area">
           <h2><%=student.name%>'s Portfolio</h2>
           <button id="cognitive">Cognitive</button>
           <button id="socioEmotional">Social / Emotional</button>
           <button id="speechLang">Speech / Language</button>
           <button id="fineMotor">Fine Motor</button>
           <button id="grossMotor">Gross Motor</button>
+          <button id="summary">Summary</button>
 
           <% if (portfolio !== null) { %>
 
