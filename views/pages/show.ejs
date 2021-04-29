@@ -33,6 +33,17 @@
 
         <section id="portfolio" class="hidden">
           <h2><%=student.name%>'s Portfolio</h2>
+          <button id="cognitive">Cognitive</button>
+          <button id="socioEmotional">Social / Emotional</button>
+          <button id="speechLang">Speech / Language</button>
+          <button id="fineMotor">Fine Motor</button>
+          <button id="grossMotor">Gross Motor</button>
+
+          <section id="display-cognitive">
+            <img src="<%=portfolio.cognitive.img%>" alt="Cognitive Development Example"/>
+            <h4><%=portfolio.cognitive.quote%></h4>
+            <p><%=portfolio.cognitive.description%></p>
+          </section>
         </section>
 
       </main>
