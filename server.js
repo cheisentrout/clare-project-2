@@ -63,7 +63,7 @@ app.get('/' , (req, res) => {
 const classController = require('./controllers/class_controller.js')
 app.use('/class', classController)
 const portfolioController = require('./controllers/portfolio_controller.js')
-app.use('/portfolio', portfolioController)
+app.use(portfolioController)
 
 /*=======================================================
   LISTENER

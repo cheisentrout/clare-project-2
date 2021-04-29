@@ -122,6 +122,7 @@ router.post('/', (req, res) => {
 /*-------------------- SHOW ---------------------*/
 
 router.get('/:id', (req, res) => {
+  //I'll need a way to get the porfolio data into this route too
   Student.findById(req.params.id, (err, foundStudent) => {
     // res.send(foundStudent)
     res.render(

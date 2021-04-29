@@ -15,6 +15,7 @@ Link to live site: https://clare-project-2.herokuapp.com/class
 
 ### Day 2
 
+- The biggest issue I'm running into today is how to redirect to a page from my /class router after I've created a portfolio in the portfolio router.
 
 ### Day 3
 
