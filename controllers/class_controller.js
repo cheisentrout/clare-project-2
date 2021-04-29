@@ -122,28 +122,26 @@ router.post('/', (req, res) => {
 /*-------------------- SHOW ---------------------*/
 
 router.get('/:id', (req, res) => {
-  //I'll need a way to get the porfolio data into this route too
-
-  /*--- THIS WORKS ---*/
-  // Student.findById(req.params.id, (err, foundStudent) => {
-  //   // res.send(foundStudent)
-  //   res.render(
-  //     'pages/show.ejs',
-  //     {
-  //       student: foundStudent
-  //     }
-  //   )
-  // })
 
   Student.findById(req.params.id, (err, foundStudent) => {
     Portfolio.findOne({ studentId: req.params.id } , (err2, foundPortfolio) => {
-      res.render(
-        'pages/show.ejs',
-        {
-          student: foundStudent,
-          portfolio: foundPortfolio
-        }
-      )
+      if (foundPortfolio) {
+        res.render(
+          'pages/show.ejs',
+          {
+            student: foundStudent,
+            portfolio: foundPortfolio
+          }
+        )
+      } else {
+        res.render(
+          'pages/show.ejs',
+          {
+            student: foundStudent,
+            portfolio: null
+          }
+        )
+      }
     })
   })
 })

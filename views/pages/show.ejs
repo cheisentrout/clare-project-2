@@ -39,11 +39,43 @@
           <button id="fineMotor">Fine Motor</button>
           <button id="grossMotor">Gross Motor</button>
 
-          <section id="display-cognitive">
-            <img src="<%=portfolio.cognitive.img%>" alt="Cognitive Development Example"/>
-            <h4><%=portfolio.cognitive.quote%></h4>
-            <p><%=portfolio.cognitive.description%></p>
-          </section>
+          <% if (portfolio !== null) { %>
+
+              <section id="display-cognitive">
+                <img src="<%=portfolio.cognitive.img%>" alt="Cognitive Development Example"/>
+                <h4><%=portfolio.cognitive.quote%></h4>
+                <p><%=portfolio.cognitive.description%></p>
+              </section>
+
+              <section id="display-socioEmotional">
+                <img src="<%=portfolio.socioEmotional.img%>" alt="Social Emotional Development Example"/>
+                <h4><%=portfolio.socioEmotional.quote%></h4>
+                <p><%=portfolio.socioEmotional.description%></p>
+              </section>
+
+              <section id="display-speechLang">
+                <img src="<%=portfolio.speechLang.img%>" alt="Social Emotional Development Example"/>
+                <h4><%=portfolio.speechLang.quote%></h4>
+                <p><%=portfolio.speechLang.description%></p>
+              </section>
+
+              <section id="display-fineMotor">
+                <img src="<%=portfolio.fineMotor.img%>" alt="Social Emotional Development Example"/>
+                <h4><%=portfolio.fineMotor.quote%></h4>
+                <p><%=portfolio.fineMotor.description%></p>
+              </section>
+
+              <section id="display-grossMotor">
+                <img src="<%=portfolio.grossMotor.img%>" alt="Social Emotional Development Example"/>
+                <h4><%=portfolio.grossMotor.quote%></h4>
+                <p><%=portfolio.grossMotor.description%></p>
+              </section>
+
+              <section id="display-summary">
+                <h4>Student Summary</h4>
+              </section>
+
+          <% } %>
         </section>
 
       </main>

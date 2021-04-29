@@ -16,6 +16,8 @@ Link to live site: https://clare-project-2.herokuapp.com/class
 ### Day 2
 
 - The biggest issue I'm running into today is how to redirect to a page from my /class router after I've created a portfolio in the portfolio router.
+  - I ended up needing to delete the first parameter ('/portfolio') from my app.use method! I was able to redirect much easily from the project's home directory once that was removed.
+- Some other challenges have been: how to tell the server to ignore parts of my ejs file if the data doesn't exist...
 
 ### Day 3
 
