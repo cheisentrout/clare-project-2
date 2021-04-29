@@ -11,6 +11,14 @@ const toggleHidden = (elem) => {
   }
 }
 
+const hideNotSelected = () => {
+  displaySections.forEach(node => {
+    if (node.classList.contains('visible')) {
+      node.classList.add('hidden')
+    }
+  })
+}
+
 // const viewOrHide = (elem, btn) => {
 //   if (elem.classList.contains('hidden')) {
 //     btn.innerText = btn.innerText
@@ -66,46 +74,27 @@ const fineMotorSection = document.getElementById('display-fineMotor')
 const grossMotorSection = document.getElementById('display-grossMotor')
 
 cognitiveBtn.addEventListener('click', () => {
-  // displaySections.forEach(node => {
-  //   if (node.classList.contains('visible')) {
-  //     console.log(node + ' is visible');
-  //   } else {
-  //     console.log('This node is not visible.');
-  //   }
-  // })
-  displaySections.forEach(node => {
-    if (node.classList.contains('visible')) {
-      node.classList.add('hidden')
-    }
-  })
+  hideNotSelected()
   toggleHidden(cognitiveSection)
 })
 
 socioEmotionalBtn.addEventListener('click', () => {
-  // displaySections.forEach(node => {
-  //   if (node.classList.contains('visible')) {
-  //     console.log(node + ' is visible');
-  //   } else {
-  //     console.log('This node is not visible.');
-  //   }
-  // })
-  displaySections.forEach(node => {
-    if (node.classList.contains('visible')) {
-      node.classList.add('hidden')
-    }
-  })
+  hideNotSelected()
   toggleHidden(socioEmotionalSection)
 })
 
 speechLangBtn.addEventListener('click', () => {
+  hideNotSelected()
   toggleHidden(speechLangSection)
 })
 
 fineMotorBtn.addEventListener('click', () => {
+  hideNotSelected()
   toggleHidden(fineMotorSection)
 })
 
 grossMotorBtn.addEventListener('click', () => {
+  hideNotSelected()
   toggleHidden(grossMotorSection)
 })
 
