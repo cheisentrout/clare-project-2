@@ -120,6 +120,17 @@ h3 {
   object-fit: cover;
 }
 
+/* #details {
+  display: block;
+}
+
+#portfolio {
+  display: block;
+} */
+
+.hidden {
+  display: none;
+}
 
 /*------------- EDIT PAGE ----------------*/
 

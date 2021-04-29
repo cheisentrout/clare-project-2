@@ -11,18 +11,26 @@
             <img class="student-photo" src="<%=student.img%> alt="Student picture" />
           <% } %>
           <h1><%=student.name%></h1>
+          <button id="view-details">View Details</button>
+          <button id="view-portfolio">View Portfolio</button>
         </section>
         <%# Here is where I'd want two buttons... one says "view details" and the other says "view portfolio" - both are currently display: none. On click function for view details adds the display: block property to the details div. On click function for view portfolio div adds display block to THAT, and display none to the details div. This could all be written in my vanilla js file...%>
-        <p>Date of Birth: <%=student.dob%></p>
-        <p>Parents: <%=student.parents%></p>
-        <p>Enrollment Status: <%=student.enrollment%></p>
-        <p>Allergies: <%=student.allergies%></p>
-        <p>Notes: <%=student.notes%></p>
-        <a href="/class/<%=student._id%>/edit" class="anchor-btn">Edit</a>
-        <form action="/class/<%=student._id%>?_method=DELETE" method="post">
-          <input type="submit" value="Unenroll">
-        </form>
+        <section id="details" class="hidden">
+          <p>Date of Birth: <%=student.dob%></p>
+          <p>Parents: <%=student.parents%></p>
+          <p>Enrollment Status: <%=student.enrollment%></p>
+          <p>Allergies: <%=student.allergies%></p>
+          <p>Notes: <%=student.notes%></p>
+          <a href="/class/<%=student._id%>/edit" class="anchor-btn">Edit</a>
+          <form action="/class/<%=student._id%>?_method=DELETE" method="post">
+            <input type="submit" value="Unenroll">
+          </form>
+        </section>
+        <section id="portfolio" class="hidden">
+          <h2><%=student.name%>'s Portfolio</h2>
+        </section>
       </main>
+      <%- include ('../partials/footer.ejs') %>
     </div>
 
   </body>
