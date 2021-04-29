@@ -5,20 +5,24 @@
 
     <div class="container">
       <%- include ('../partials/header.ejs') %>
-      <h1><%=student.name%></h1>
-      <% if (student.img !== "") { %>
-        <img src="<%=student.img%> alt="Student picture" />
-      <% } %>
-      <%# Here is where I'd want two buttons... one says "view details" and the other says "view portfolio" - both are currently display: none. On click function for view details adds the display: block property to the details div. On click function for view portfolio div adds display block to THAT, and display none to the details div. This could all be written in my vanilla js file...%>
-      <p>Date of Birth: <%=student.dob%></p>
-      <p>Parents: <%=student.parents%></p>
-      <p>Enrollment Status: <%=student.enrollment%></p>
-      <p>Allergies: <%=student.allergies%></p>
-      <p>Notes: <%=student.notes%></p>
-      <a href="/class/<%=student._id%>/edit" class="anchor-btn">Edit</a>
-      <form action="/class/<%=student._id%>?_method=DELETE" method="post">
-        <input type="submit" value="Unenroll">
-      </form>
+      <main class="show-main">
+        <section id="hero-area">
+          <% if (student.img !== "") { %>
+            <img class="student-photo" src="<%=student.img%> alt="Student picture" />
+          <% } %>
+          <h1><%=student.name%></h1>
+        </section>
+        <%# Here is where I'd want two buttons... one says "view details" and the other says "view portfolio" - both are currently display: none. On click function for view details adds the display: block property to the details div. On click function for view portfolio div adds display block to THAT, and display none to the details div. This could all be written in my vanilla js file...%>
+        <p>Date of Birth: <%=student.dob%></p>
+        <p>Parents: <%=student.parents%></p>
+        <p>Enrollment Status: <%=student.enrollment%></p>
+        <p>Allergies: <%=student.allergies%></p>
+        <p>Notes: <%=student.notes%></p>
+        <a href="/class/<%=student._id%>/edit" class="anchor-btn">Edit</a>
+        <form action="/class/<%=student._id%>?_method=DELETE" method="post">
+          <input type="submit" value="Unenroll">
+        </form>
+      </main>
     </div>
 
   </body>

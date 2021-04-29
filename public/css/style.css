@@ -2,14 +2,62 @@
   GLOBAL STYLES
 =====================================================================*/
 
+:root {
+  --gray: #58555A;
+  --teal: #025373;
+  --aquamarine: #025E73;
+  --skyblue: #69B7BF;
+  --olive: #BFB169;
+  --peach: #F2695C;
+}
+
+body {
+  font-family: 'jost';
+  font-size: 16px;
+  color: var(--gray);
+}
+
 img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 60%;
   object-fit: cover;
 }
 
+/*====================================================================
+  PARTIALS
+=====================================================================*/
 
+/* Header */
+
+header {
+  text-align: center;
+}
+
+#header-line {
+  width: 100%;
+  height: 3px;
+  background: var(--olive);
+  margin-bottom: 20px;
+  margin-top: -70px;
+}
+
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  font-size: 1.3em;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--gray);
+  transition: .2s;
+}
+
+header a:hover {
+  color: var(--skyblue);
+}
 
 
 /*====================================================================
@@ -18,14 +66,59 @@ img {
 
 /*------------- HOME PAGE ----------------*/
 
+.index-main {
+  display: flex;
+  justify-content: center;
+}
 
+h1 {
+  text-align: center;
+  margin: 20px auto;
+}
 
+ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
 
+.anchor-name {
+  text-decoration: none;
+  /* width: 30%; */
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  color: var(--aquamarine);
+  transition: .2s;
+}
+
+.anchor-name:hover {
+  color: var(--peach);
+}
+
+h3 {
+  font-size: 1.5em;
+  text-align: center;
+}
 
 /*------------- SHOW PAGE ----------------*/
 
+.show-main {
+  margin: 40px auto;
+}
 
+#hero-area {
+  text-align: center;
+}
 
+.student-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 60%;
+  object-fit: cover;
+}
 
 
 /*------------- EDIT PAGE ----------------*/

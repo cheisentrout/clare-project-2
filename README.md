@@ -10,6 +10,8 @@ Link to live site: https://clare-project-2.herokuapp.com/class
 
 ### Day 1
 
+- wrote MVC file structure
+- set up create, read, update and delete routes for my students collection
 
 ### Day 2
 
