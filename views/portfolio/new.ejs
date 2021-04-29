@@ -4,7 +4,17 @@
   <body>
 
     <div class="container">
+      <%- include ('../partials/header.ejs') %>
       <h1>New Portfolio Page</h1>
+      <form action="/portfolio" method="POST">
+        <section>
+          <h4>Cognitive</h4>
+          <input type="text" name="cognitive.img" placeholder="Image Link">
+          <input type="text" name="cognitive.quote" placeholder="Quote">
+          <input type="textarea" name="cognitive.description" placeholder="Description">
+        </section>
+        <input type="submit" value="Submit Edits">
+      </form>
     </div>
 
   </body>

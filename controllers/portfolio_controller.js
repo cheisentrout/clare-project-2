@@ -16,7 +16,18 @@ portfolioRouter.get('/', (req, res) => {
 
 /*------------------- POST --------------------*/
 
-
+portfolioRouter.post('/', (req, res) => {
+  // res.send(req.body)
+  Portfolio.create(req.body, (err, createdPortfolio) => {
+    if (err) {
+      console.log(err);
+      res.send(err)
+    } else {
+      console.log(createdPortfolio);
+      res.send(createdPortfolio)
+    }
+  })
+})
 
 
 
