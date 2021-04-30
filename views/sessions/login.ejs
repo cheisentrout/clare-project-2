@@ -14,7 +14,7 @@
       </header>
       <h1>Log In</h1>
 
-      <form id="login" action="/user" method="post">
+      <form id="login" action="/session" method="post">
         <h5>Username:</h5>
           <input type="text" name="username" placeholder="username" />
         <h5>Password:</h5>
@@ -22,7 +22,7 @@
         <%# This form is for TEACHERS, and sets the user Schema to parent: false, teacher: true %>
         <input type="hidden" name="parent" value="false" />
         <input type="hidden" name="teacher" value="true" />
-        <input type="submit" value="Create Account" />
+        <input type="submit" value="Log In" />
       </form>
 
     </div>
