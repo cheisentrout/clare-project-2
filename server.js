@@ -58,10 +58,10 @@ app.use(
 //localhost:3000
 app.get('/' , (req, res) => {
   // res.send('Hello World!');
-  // res.redirect('/class')
-  res.render(
-    'pages/landing.ejs'
-  )
+  res.redirect('/class')
+  // res.render(
+  //   'pages/landing.ejs'
+  // )
 });
 
 /*=======================================================
