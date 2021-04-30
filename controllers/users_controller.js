@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt')
 const express = require('express')
 const user = express.Router()
 const Student = require('../models/students.js')
@@ -11,7 +12,18 @@ user.get('/user/new', (req, res) => {
 })
 
 user.get('/user/login', (req, res) => {
-  res.send("Here is the log in page.")
+  res.render(
+    'users/login.ejs'
+  )
+})
+
+user.post('/user', (req, res) => {
+  // res.send(req.body) WORKS!
+  req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
+  User.create(req.body, (err, newUser) => {
+    console.log('A new user was created: ' + newUser);
+    res.redirect('/class')
+  })
 })
 
 module.exports = user
