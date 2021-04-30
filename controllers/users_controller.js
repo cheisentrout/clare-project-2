@@ -7,7 +7,10 @@ const User = require('../models/users.js')
 
 user.get('/user/new', (req, res) => {
   res.render(
-    'users/new.ejs'
+    'users/new.ejs',
+    {
+      currentUser: req.session.currentUser
+    }
   )
 })
 

@@ -4,6 +4,15 @@ const Student = require('../models/students.js')
 const Portfolio = require('../models/portfolio.js')
 const User = require('../models/users.js')
 
+//Glogal function to check if a user is logged in or not:
+const isAuthenticated = (req, res, next) => {
+  if (req.session.currentUser) {
+    return next()
+  } else {
+    res.redirect('/sessions/new')
+  }
+}
+
 /*------------------ SEED DATA -------------------*/
 
 router.get('/seed', (req, res) => {
@@ -89,25 +98,27 @@ router.get('/json', (req, res) => {
 
 /*---------------- INDEX / HOME ------------------*/
 
-router.get('/', (req, res) => {
+router.get('/', isAuthenticated, (req, res) => {
   // res.send('class index route set up')
   Student.find({}, (err, allStudents) => {
-    // res.send(allStudents)
     res.render(
       'pages/index.ejs',
       {
-        students: allStudents
+        students: allStudents,
+        currentUser: req.session.currentUser
       }
     )
   })
-  // res.render('pages/index.ejs')
 })
 
 /*--------------------- NEW ---------------------*/
 
 router.get('/enroll', (req, res) => {
   res.render(
-    'pages/new.ejs'
+    'pages/new.ejs',
+    {
+      currentUser: req.session.currentUser
+    }
   )
 })
 
@@ -131,7 +142,8 @@ router.get('/:id', (req, res) => {
           'pages/show.ejs',
           {
             student: foundStudent,
-            portfolio: foundPortfolio
+            portfolio: foundPortfolio,
+            currentUser: req.session.currentUser
           }
         )
       } else {
@@ -139,7 +151,8 @@ router.get('/:id', (req, res) => {
           'pages/show.ejs',
           {
             student: foundStudent,
-            portfolio: null
+            portfolio: null,
+            currentUser: req.session.currentUser
           }
         )
       }
@@ -155,7 +168,8 @@ router.get('/:id/edit', (req, res) => {
     res.render(
       'pages/edit.ejs',
       {
-        student: foundStudent
+        student: foundStudent,
+        currentUser: req.session.currentUser
       }
     )
   })
