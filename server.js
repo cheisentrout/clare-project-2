@@ -58,10 +58,10 @@ app.use(
 //localhost:3000
 app.get('/' , (req, res) => {
   // res.send('Hello World!');
-  res.redirect('/class')
-  // res.render(
-  //   'pages/landing.ejs'
-  // )
+  // res.redirect('/class')
+  res.render(
+    'pages/landing.ejs'
+  )
 });
 
 /*=======================================================
@@ -70,10 +70,15 @@ app.get('/' , (req, res) => {
 
 const classController = require('./controllers/class_controller.js')
 app.use('/class', classController)
+
 const portfolioController = require('./controllers/portfolio_controller.js')
 app.use(portfolioController)
+
 const usersController = require('./controllers/users_controller.js')
 app.use(usersController)
+
+const sessionsController = require('./controllers/sessions_controller.js')
+app.use(sessionsController)
 
 /*======================================================
 ERROR CHECKER
