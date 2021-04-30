@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Student = require('../models/students.js')
 const Portfolio = require('../models/portfolio.js')
+const User = require('../models/users.js')
 
 /*------------------ SEED DATA -------------------*/
 

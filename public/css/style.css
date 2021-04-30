@@ -252,19 +252,28 @@ input[name="notes"] {
 
   /*------------- !!TABLET!! PARTIALS ----------------*/
 
-  #view-details, #view-portfolio, #edit-details, #edit-portfolio {
-    width: 20%;
-  }
 
   /*------------- !!TABLET!! HOME PAGE ----------------*/
 
   .student-div {
-    width: 23%;
+    width: 12%;
+
+  }
+
+  #student-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  h3 {
+    font-size: 1.2em;
   }
 
   /*------------- !!TABLET!! SHOW PAGE ----------------*/
 
-
+  #view-details, #view-portfolio, #edit-details, #edit-portfolio {
+    width: 20%;
+  }
 
   /*------------- !!TABLET!! EDIT PAGE ----------------*/
 
