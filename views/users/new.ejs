@@ -23,7 +23,6 @@
         <h5>Password:</h5>
           <input type="text" name="password" placeholder="password" />
         <%# This form is for TEACHERS, and sets the user Schema to parent: false, teacher: true %>
-        <input type="hidden" name="parent" value="false" />
         <input type="hidden" name="teacher" value="true" />
         <input type="hidden" name="childsName" value="n/a">
         <input type="submit" value="Create Account">
@@ -37,7 +36,6 @@
         <h5>Child's Name</h5>
           <input type="text" name="childsName" placeholder="child's name"/>
         <%# This form is for PARENTS, and sets the user Schema to parent: true, teacher: false %>
-        <input type="hidden" name="parent" value="true" />
         <input type="hidden" name="teacher" value="false" />
         <input type="submit" value="Create Account" />
       </form>

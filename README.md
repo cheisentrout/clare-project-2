@@ -23,6 +23,8 @@ Link to live site: https://clare-project-2.herokuapp.com/class
 ### Day 3
 
 - Today I am going to attempt to set up authentication and users! I want to make it so that a user can be either a parent or a teacher, and the site permissions change based on which they are. Obviously, no information about the kids should be visible unless a user has an account and is signed in.
+- Biggest roadblock today so far has been adding a SECRET to my .env file, then not realizing I needed to add it as a config var in Heroku. That is working now.
+- I'm fiddling with my static js functions to hide/display elements based on selected buttons. I'm having trouble figuring out how to hide one area when the other button is clicked, without having to toggle the selected button itself. Maybe try a "selected" class...?
 
 ### Day 4
 

@@ -10,11 +10,23 @@ const User = require('../models/users.js')
 
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
+    if (req.session.currentUser.teacher === false) {
+      console.log('Current user is a caregiver.');
+      console.log(req.session.currentUser.childsName);
+    } else if (req.session.currentUser.teacher === true){
+      console.log('Current user is a TEACHER.');
+    }
     return next()
   } else {
-    res.redirect('/sessions/new')
+    res.redirect('/user/new')
   }
 }
+
+/*------------ CHECK TEACHER / CAREGIVER STATUS ------------*/
+//
+// const teacherOrCaregiver = (req, res, next) => {
+//
+// }
 
 /*------------------ SEED DATA -------------------*/
 
@@ -102,7 +114,7 @@ router.get('/json', (req, res) => {
 /*---------------- INDEX / CLASS HOME ------------------*/
 
 router.get('/', isAuthenticated, (req, res) => {
-  // res.send('class index route set up')
+  // teacherOrCaregiver()
   Student.find({}, (err, allStudents) => {
     res.render(
       'pages/index.ejs',
