@@ -17,7 +17,7 @@
       <button id="teacher">Teacher</button>
       <button id="caregiver">Caregiver</button>
 
-      <form id="teacher-login" action="/user" method="post">
+      <form id="create-teacher" action="/user" method="post">
         <h5>Username:</h5>
           <input type="text" name="username" placeholder="username" />
         <h5>Password:</h5>
@@ -28,7 +28,7 @@
         <input type="submit" value="Create Account">
       </form>
 
-      <form id="parent-login" action="/user" method="post">
+      <form id="create-parent" action="/user" method="post">
         <h5>Username:</h5>
           <input type="text" name="username" placeholder="username" />
         <h5>Password:</h5>
@@ -36,7 +36,7 @@
         <%# This form is for PARENTS, and sets the user Schema to parent: true, teacher: false %>
         <input type="hidden" name="parent" value="true" />
         <input type="hidden" name="teacher" value="false" />
-        <input type="submit" value="Create Account">
+        <input type="submit" value="Create Account" />
       </form>
 
     </div>

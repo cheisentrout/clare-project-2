@@ -26,4 +26,25 @@ user.post('/user', (req, res) => {
   })
 })
 
+user.post('/user', (req, res) => {
+  // res.send('User login form was sent.') WORKS!
+  // res.send(req.body)
+  User.findOne({ username: req.body.username }, (err, foundUser) => {
+    if (err) {
+      console.log(err);
+      res.send('There was an issue with our database. Check the console for the error message.')
+    } else if (!foundUser) {
+      //Eventually, could render some sort of modal with this alert.
+      res.send('<a href="/">Sorry, that user was not found. Click here to return to the home page.</a>')
+    } else {
+      if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+        req.session.currentUser = foundUser
+        res.redirect('/class')
+      } else {
+        res.send('<a href="/">Oops! That password doesn\'t match.</a>')
+      }
+    }
+  })
+})
+
 module.exports = user
