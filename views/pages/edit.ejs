@@ -4,28 +4,32 @@
   <body>
 
     <div class="container">
-      <%- include ('../partials/header.ejs') %>
-      <a href="/class/<%=student._id%>">Back</a>
-      <h1>Edit <%=student.name%></h1>
-      <form action="/class/<%=student._id%>?_method=PUT" method="POST">
-        Name:
-          <input type="text" name="name" value="<%=student.name%>" />
-        Student Photo:
-          <input type="text" name="img" value="<%=student.img%>">
-        Date of Birth:
-          <input type="date" name="dob" value="<%=student.dob%>" />
-        Address:
-          <input type="text" name="address" value="<%=student.address%>">
-        Parents:
-          <input type="text" name="parents" value="<%=student.parents%>" />
-        Allergies:
-          <input type="text" name="allergies" value="<%=student.allergies%>" />
-        Enrollment Status:
-          <input type="text" name="enrollment" value="<%=student.enrollment%>" />
-        Notes:
-          <input type="textarea" name="notes" value="<%=student.notes%>">
-        <input type="submit" value="Submit Changes">
-      </form>
+      <header>
+        <%- include ('../partials/header.ejs') %>
+        <a href="/class/<%=student._id%>" id="back">Back</a>
+      </header>
+      <main>
+        <h1>Edit <%=student.name%></h1>
+        <form action="/class/<%=student._id%>?_method=PUT" method="POST">
+          <h5>Name:</h5>
+            <input type="text" name="name" value="<%=student.name%>" /></br>
+          <h5>Student Photo:</h5>
+            <input type="text" name="img" value="<%=student.img%>" /></br>
+          <h5>Date of Birth:</h5>
+            <input type="date" name="dob" value="<%=student.dob%>" /></br>
+          <h5>Address:</h5>
+            <input type="text" name="address" value="<%=student.address%>" /></br>
+          <h5>Parent Contacts:</h5>
+            <input type="text" name="parents" value="<%=student.parents%>" /></br>
+          <h5>Allergies:</h5>
+            <input type="text" name="allergies" value="<%=student.allergies%>" /></br>
+          <h5>Enrollment Status:</h5>
+            <input type="text" name="enrollment" value="<%=student.enrollment%>" /></br>
+          <h5>Notes</h5>
+            <input type="text" name="notes" value="<%=student.notes%>" /></br>
+          <input type="submit" value="Submit Changes" />
+        </form>
+      </main>
     </div>
 
   </body>

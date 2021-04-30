@@ -13,8 +13,8 @@
             <img class="student-photo" src="<%=student.img%> alt="Student picture" />
           <% } %>
           <h1><%=student.name%></h1>
-          <button id="view-details">View Details</button>
-          <button id="view-portfolio">View Portfolio</button>
+          <a href="#" id="view-details">View Details</a>
+          <a href="#" id="view-portfolio">View Portfolio</a>
           <a href="/class/<%=student._id%>/edit" id="edit-details">Edit Details</a>
           <a href="/portfolio/<%=student._id%>" id="edit-portfolio">Edit Portfolio</a>
         </section>

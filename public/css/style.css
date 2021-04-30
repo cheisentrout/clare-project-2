@@ -11,6 +11,11 @@
   --peach: #F2695C;
 }
 
+.container {
+  width: 80%;
+  max-width: 1200px;
+}
+
 body {
   font-family: 'jost';
   font-size: 16px;
@@ -18,8 +23,8 @@ body {
 }
 
 img {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   border-radius: 60%;
   object-fit: cover;
 }
@@ -32,6 +37,7 @@ img {
 
 header {
   text-align: center;
+  margin-bottom: 50px;
 }
 
 #header-line {
@@ -39,7 +45,7 @@ header {
   height: 3px;
   background: var(--olive);
   margin-bottom: 20px;
-  margin-top: -75px;
+  margin-top: -130px;
 }
 
 nav {
@@ -51,6 +57,7 @@ nav {
 
 header a {
   text-decoration: none;
+  font-size: 1.2em;
   color: var(--gray);
   transition: .2s;
 }
@@ -84,17 +91,27 @@ ul {
   margin-top: 30px;
 }
 
-.anchor-name {
+#student-img {
+  border: 5px solid var(--olive);
+  transition: .6s;
+}
+
+#student-img:hover {
+  border: 5px solid var(--peach);
+}
+
+.student-div {
   text-decoration: none;
-  /* width: 30%; */
   margin: 30px;
+  font-size: 1.8em;
   display: flex;
   justify-content: center;
   color: var(--aquamarine);
-  transition: .2s;
+  transition: .6s;
+  width: 80%;
 }
 
-.anchor-name:hover {
+.student-div:hover {
   color: var(--peach);
 }
 
@@ -111,13 +128,20 @@ h3 {
 
 #hero-area {
   text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .student-photo {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 60%;
   object-fit: cover;
+}
+
+h1 {
+  width: 100%;
 }
 
 .hidden {
@@ -128,11 +152,55 @@ h3 {
   /* background-color: pink; */
 }
 
+#view-details, #view-portfolio, #edit-details, #edit-portfolio {
+  width: 75%;
+  margin: 10px 15px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 1em;
+}
+
+#edit-portfolio, #edit-details, #view-portfolio, #view-details {
+  text-decoration: none;
+  padding: 5px 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
 /*------------- EDIT PAGE ----------------*/
 
+#back {
+  text-decoration: none;
+  color: var(--olive);
+  padding: 3px 10px;;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  margin: 10px auto;
+  transition: .3s;
+}
 
+#back:hover {
+  color: var(--skyblue);
+}
 
+form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
 
+h5 {
+  width: 100%;
+}
+
+input {
+  width: 70%;
+}
+
+input[name="notes"] {
+  height: 150px;
+  width: 70%;
+}
 
 /*------------- NEW PAGE ----------------*/
 
@@ -144,13 +212,63 @@ h3 {
   Tablet Styles
 =====================================================================*/
 
+@media only screen and (min-width: 768px) {
+
+/*------------- !!TABLET!! PARTIALS ----------------*/
+
+  #header-line {
+    margin-top: -130px;
+  }
+
+  /*------------- !!TABLET!! HOME PAGE ----------------*/
+
+  ul {
+    justify-content: space-around;
+  }
+
+  .student-div {
+    width: 40%;
+  }
+
+  /*------------- !!TABLET!! SHOW PAGE ----------------*/
+
+  #view-details, #view-portfolio, #edit-details, #edit-portfolio {
+    width: 45%;
+  }
+
+  /*------------- !!TABLET!! EDIT PAGE ----------------*/
 
 
+  /*------------- !!TABLET!! NEW PAGE ----------------*/
 
-
-
+}
 
 
 /*====================================================================
   Desktop Styles
 =====================================================================*/
+
+@media only screen and (min-width: 1200px) {
+
+  /*------------- !!TABLET!! PARTIALS ----------------*/
+
+  #view-details, #view-portfolio, #edit-details, #edit-portfolio {
+    width: 20%;
+  }
+
+  /*------------- !!TABLET!! HOME PAGE ----------------*/
+
+  .student-div {
+    width: 23%;
+  }
+
+  /*------------- !!TABLET!! SHOW PAGE ----------------*/
+
+
+
+  /*------------- !!TABLET!! EDIT PAGE ----------------*/
+
+
+  /*------------- !!TABLET!! NEW PAGE ----------------*/
+
+}
