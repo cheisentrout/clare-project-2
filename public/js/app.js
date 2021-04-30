@@ -4,9 +4,12 @@ console.log('Static JS hooked up');
 ------------------ GLOBAL FUNCTIONS -------------------
 ========================================================*/
 
-const toggleHidden = (elem) => {
+const toggleHidden = (btn, elem) => {
   elem.classList.toggle('hidden')
   elem.classList.toggle('visible')
+  // if (!elem.classList.contains('hidden')) {
+  //   btn.style.background = "pink"
+  // }
   // if (!elem.classList.contains('hidden')) {
   //   elem.classList.add('visible')
   // }
@@ -20,14 +23,26 @@ const hideNotSelected = (section) => {
   })
 }
 
-// const viewOrHide = (elem, btn) => {
-//   if (elem.classList.contains('hidden')) {
-//     btn.innerText = btn.innerText
-//   } else {
-//     btn.innerText = "Hide"
-//   }
-// }
+/*=======================================================
+------------------ CREATE ACCOUNT PAGE ------------------
+========================================================*/
 
+const teacherRegister = document.getElementById('teacher-register')
+const caregiverRegister = document.getElementById('caregiver-register')
+const teacherBtn = document.getElementById('teacher-btn')
+const caregiverBtn = document.getElementById('caregiver-btn')
+
+if (teacherBtn, caregiverBtn) {
+
+  teacherBtn.addEventListener('click', () => {
+    toggleHidden(teacherBtn, teacherRegister)
+  })
+
+  caregiverBtn.addEventListener('click', () => {
+    toggleHidden(caregiverBtn, caregiverRegister)
+  })
+
+}
 /*=======================================================
 ------------------ STUDENT SHOW PAGE -------------------
 ========================================================*/
@@ -36,31 +51,35 @@ const hideNotSelected = (section) => {
 
 const detailsSection = document.getElementById('details')
 const detailsBtn = document.getElementById('view-details')
-const portSection = document.getElementById('portfolio')
+const portfolioSection = document.getElementById('portfolio')
 const portfolioBtn = document.getElementById('view-portfolio')
 
 const deetsOrPort = document.querySelectorAll('.main-area')
 
-detailsBtn.addEventListener('click', () => {
-  // hideNotSelected(deetsOrPort)
-  toggleHidden(detailsSection)
-  if (detailsSection.classList.contains('visible')) {
-    detailsBtn.innerText = "Hide Details"
-  } else if (!detailsSection.classList.contains('visible')) {
-    detailsBtn.innerText = "View Details"
-  }
-  //Add some CSS that tells you which button is selected!!!! Class of visible
-})
+if (detailsBtn, portfolioBtn) {
 
-portfolioBtn.addEventListener('click', () => {
-  // hideNotSelected(deetsOrPort)
-  toggleHidden(portSection)
-  if (portSection.classList.contains('visible')) {
-    portfolioBtn.innerText = "Hide Portfolio"
-  } else if (!portSection.classList.contains('visible')) {
-    portfolioBtn.innerText = "View Portfolio"
-  }
-})
+  detailsBtn.addEventListener('click', () => {
+    // hideNotSelected(deetsOrPort)
+    toggleHidden(detailsBtn, detailsSection)
+    if (detailsSection.classList.contains('visible')) {
+      detailsBtn.innerText = "Hide Details"
+    } else if (!detailsSection.classList.contains('visible')) {
+      detailsBtn.innerText = "View Details"
+    }
+    //Add some CSS that tells you which button is selected!!!! Class of visible
+  })
+
+  portfolioBtn.addEventListener('click', () => {
+    // hideNotSelected(deetsOrPort)
+    toggleHidden(portfolioBtn, portfolioSection)
+    if (portfolioSection.classList.contains('visible')) {
+      portfolioBtn.innerText = "Hide Portfolio"
+    } else if (!portfolioSection.classList.contains('visible')) {
+      portfolioBtn.innerText = "View Portfolio"
+    }
+  })
+
+}
 
 /*------------- Choose Portfolio Section to View --------------*/
 
@@ -88,32 +107,36 @@ const summarySection = document.getElementById('display-summary')
 
 /*---- Buttons to hide or show sections based on clicked button -----*/
 
-cognitiveBtn.addEventListener('click', () => {
-  hideNotSelected(devSections)
-  toggleHidden(cognitiveSection)
-})
+if (cognitiveBtn, socioEmotionalBtn, speechLangBtn, fineMotorBtn, grossMotorBtn, summaryBtn) {
 
-socioEmotionalBtn.addEventListener('click', () => {
-  hideNotSelected(devSections)
-  toggleHidden(socioEmotionalSection)
-})
+  cognitiveBtn.addEventListener('click', () => {
+    hideNotSelected(devSections)
+    toggleHidden(cognitiveBtn, cognitiveSection)
+  })
 
-speechLangBtn.addEventListener('click', () => {
-  hideNotSelected(devSections)
-  toggleHidden(speechLangSection)
-})
+  socioEmotionalBtn.addEventListener('click', () => {
+    hideNotSelected(devSections)
+    toggleHidden(socioEmotionalBtn, socioEmotionalSection)
+  })
 
-fineMotorBtn.addEventListener('click', () => {
-  hideNotSelected(devSections)
-  toggleHidden(fineMotorSection)
-})
+  speechLangBtn.addEventListener('click', () => {
+    hideNotSelected(devSections)
+    toggleHidden(speechLangBtn, speechLangSection)
+  })
 
-grossMotorBtn.addEventListener('click', () => {
-  hideNotSelected(devSections)
-  toggleHidden(grossMotorSection)
-})
+  fineMotorBtn.addEventListener('click', () => {
+    hideNotSelected(devSections)
+    toggleHidden(fineMotorBtn, fineMotorSection)
+  })
 
-summaryBtn.addEventListener('click', () => {
-  hideNotSelected(devSections)
-  toggleHidden(summarySection)
-})
+  grossMotorBtn.addEventListener('click', () => {
+    hideNotSelected(devSections)
+    toggleHidden(grossMotorBtn, grossMotorSection)
+  })
+
+  summaryBtn.addEventListener('click', () => {
+    hideNotSelected(devSections)
+    toggleHidden(summaryBtn, summarySection)
+  })
+
+}

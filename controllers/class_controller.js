@@ -1,10 +1,13 @@
+/*----------------- DEPENDENCIES ------------------*/
+
 const express = require('express')
 const router = express.Router()
 const Student = require('../models/students.js')
 const Portfolio = require('../models/portfolio.js')
 const User = require('../models/users.js')
 
-//Glogal function to check if a user is logged in or not:
+/*------------ CHECK FOR LOGGED IN USER ------------*/
+
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
     return next()
@@ -96,7 +99,7 @@ router.get('/json', (req, res) => {
   })
 })
 
-/*---------------- INDEX / HOME ------------------*/
+/*---------------- INDEX / CLASS HOME ------------------*/
 
 router.get('/', isAuthenticated, (req, res) => {
   // res.send('class index route set up')
@@ -111,7 +114,7 @@ router.get('/', isAuthenticated, (req, res) => {
   })
 })
 
-/*--------------------- NEW ---------------------*/
+/*--------------------- ENROLL NEW STUDENT ---------------------*/
 
 router.get('/enroll', (req, res) => {
   res.render(
@@ -122,7 +125,7 @@ router.get('/enroll', (req, res) => {
   )
 })
 
-/*--------------------- POST --------------------*/
+/*--------------------- POST NEW STUDENT --------------------*/
 
 router.post('/', (req, res) => {
   Student.create(req.body, (err, newStudent) => {
@@ -131,11 +134,11 @@ router.post('/', (req, res) => {
   })
 })
 
-/*-------------------- SHOW ---------------------*/
+/*-------------------- SHOW SPECIFIC STUDENT ---------------------*/
 
 router.get('/:id', (req, res) => {
 
-  Student.findById(req.params.id, (err, foundStudent) => {
+  Student.findById(req.params.id, isAuthenticated, (err, foundStudent) => {
     Portfolio.findOne({ studentId: req.params.id } , (err2, foundPortfolio) => {
       if (foundPortfolio) {
         res.render(
@@ -160,7 +163,7 @@ router.get('/:id', (req, res) => {
   })
 })
 
-/*-------------------- EDIT ---------------------*/
+/*-------------------- EDIT STUDENT DETAILS ---------------------*/
 
 router.get('/:id/edit', (req, res) => {
   Student.findById(req.params.id, (err, foundStudent) => {
@@ -175,7 +178,7 @@ router.get('/:id/edit', (req, res) => {
   })
 })
 
-/*------------- PUT (SEND UPDATES) --------------*/
+/*------------- PUT (SEND DETAIL UPDATES) --------------*/
 
 router.put('/:id', (req, res) => {
   Student.findByIdAndUpdate(req.params.id, req.body, (err, updatedStudent) => {
@@ -189,7 +192,7 @@ router.put('/:id', (req, res) => {
   })
 })
 
-/*------------------- DELETE --------------------*/
+/*------------------- DELETE / UNENROLL --------------------*/
 
 router.delete('/:id', (req, res) => {
   Student.findByIdAndRemove(req.params.id, (err, foundStudent) => {

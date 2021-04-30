@@ -1,9 +1,11 @@
+/*----------------- DEPENDENCIES ------------------*/
+
 const bcrypt = require('bcrypt')
 const express = require('express')
 const session = express.Router()
-// const Student = require('../models/students.js')
-// const Portfolio = require('../models/portfolio.js')
 const User = require('../models/users.js')
+
+/*----------------- USER LOGIN ------------------*/
 
 session.get('/sessions/login', (req, res) => {
   res.render(
@@ -13,6 +15,8 @@ session.get('/sessions/login', (req, res) => {
     }
   )
 })
+
+/*----------------- SEARCH USERS ------------------*/
 
 session.post('/session', (req, res) => {
   // res.send('User login form was sent.')
@@ -35,6 +39,8 @@ session.post('/session', (req, res) => {
     }
   })
 })
+
+/*----------------- LOG OUT / END SESSION ------------------*/
 
 session.delete('/session', (req, res) => {
   req.session.destroy(() => {
