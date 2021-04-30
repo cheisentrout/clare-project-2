@@ -150,7 +150,7 @@ router.post('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
 
-  Student.findById(req.params.id, isAuthenticated, (err, foundStudent) => {
+  Student.findById(req.params.id, (err, foundStudent) => {
     Portfolio.findOne({ studentId: req.params.id } , (err2, foundPortfolio) => {
       if (foundPortfolio) {
         res.render(
