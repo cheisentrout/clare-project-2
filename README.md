@@ -28,8 +28,13 @@ Link to live site: https://clare-project-2.herokuapp.com/class
 
 ### Day 4
 
+- Today I'm continuing to implement varying view permissions for teachers and caregivers.
 
 ### Day 5
+
+## Potential Improvements
+
+- Creating an account routes a user directly to home page, rather than making them login.
 
 
 ##Summary

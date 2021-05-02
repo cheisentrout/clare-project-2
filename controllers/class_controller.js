@@ -10,12 +10,12 @@ const User = require('../models/users.js')
 
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
-    if (req.session.currentUser.teacher === false) {
-      console.log('Current user is a caregiver.');
-      console.log(req.session.currentUser.childsName);
-    } else if (req.session.currentUser.teacher === true){
-      console.log('Current user is a TEACHER.');
-    }
+    // if (req.session.currentUser.teacher === false) {
+    //   console.log('Current user is a caregiver.');
+    //   console.log(req.session.currentUser.childsName);
+    // } else if (req.session.currentUser.teacher === true){
+    //   console.log('Current user is a TEACHER.');
+    // }
     return next()
   } else {
     res.redirect('/user/new')
@@ -23,9 +23,16 @@ const isAuthenticated = (req, res, next) => {
 }
 
 /*------------ CHECK TEACHER / CAREGIVER STATUS ------------*/
-//
-// const teacherOrCaregiver = (req, res, next) => {
-//
+
+//way to separate this from isAuthenticated?
+// const teacherOrCaregiver = () => {
+//   if (req.session.currentUser) {
+//     if (req.session.currentUser.teacher === false) {
+//       console.log('This user is a CAREGIVER.');
+//     } else if (req.session.currentUser.teacher === true) {
+//       console.log('This user is a TEACHER.');
+//     }
+//   }
 // }
 
 /*------------------ SEED DATA -------------------*/
@@ -114,7 +121,11 @@ router.get('/json', (req, res) => {
 /*---------------- INDEX / CLASS HOME ------------------*/
 
 router.get('/', isAuthenticated, (req, res) => {
-  // teacherOrCaregiver()
+    if (req.session.currentUser.teacher === false) {
+      console.log('This user is a CAREGIVER.');
+    } else if (req.session.currentUser.teacher === true) {
+      console.log('This user is a TEACHER.');
+    }
   Student.find({}, (err, allStudents) => {
     res.render(
       'pages/index.ejs',
@@ -128,13 +139,17 @@ router.get('/', isAuthenticated, (req, res) => {
 
 /*--------------------- ENROLL NEW STUDENT ---------------------*/
 
-router.get('/enroll', (req, res) => {
-  res.render(
-    'pages/new.ejs',
-    {
-      currentUser: req.session.currentUser
-    }
-  )
+router.get('/enroll', isAuthenticated, (req, res) => {
+  if (req.session.currentUser.teacher === true) {
+    res.render(
+      'pages/new.ejs',
+      {
+        currentUser: req.session.currentUser
+      }
+    )
+  } else {
+    res.redirect('/class')
+  }
 })
 
 /*--------------------- POST NEW STUDENT --------------------*/
@@ -148,46 +163,83 @@ router.post('/', (req, res) => {
 
 /*-------------------- SHOW SPECIFIC STUDENT ---------------------*/
 
-router.get('/:id', (req, res) => {
-
-  Student.findById(req.params.id, (err, foundStudent) => {
-    Portfolio.findOne({ studentId: req.params.id } , (err2, foundPortfolio) => {
-      if (foundPortfolio) {
-        res.render(
-          'pages/show.ejs',
-          {
-            student: foundStudent,
-            portfolio: foundPortfolio,
-            currentUser: req.session.currentUser
-          }
-        )
-      } else {
-        res.render(
-          'pages/show.ejs',
-          {
-            student: foundStudent,
-            portfolio: null,
-            currentUser: req.session.currentUser
-          }
-        )
-      }
+//have to pass through isAuthenticated here in order for the req.session.currentUser info to be available?
+router.get('/:id', isAuthenticated, (req, res) => {
+  if (req.session.currentUser.teacher === true) {
+    Student.findById(req.params.id, (err, foundStudent) => {
+      Portfolio.findOne({ studentId: req.params.id } , (err2, foundPortfolio) => {
+        if (foundPortfolio) {
+          res.render(
+            'pages/show.ejs',
+            {
+              student: foundStudent,
+              portfolio: foundPortfolio,
+              currentUser: req.session.currentUser
+            }
+          )
+        } else {
+          res.render(
+            'pages/show.ejs',
+            {
+              student: foundStudent,
+              portfolio: null,
+              currentUser: req.session.currentUser
+            }
+          )
+        }
+      })
     })
-  })
+    //If the current user is a caregiver...
+  }
+  else if (req.session.currentUser.teacher === false) {
+    //Find the student who's name matches the user's child's name
+    Student.findById(req.params.id, (err, foundStudent) => {
+      Portfolio.findOne({studentName: foundStudent.name}, (err2, foundPortfolio) => {
+        if (foundStudent.name === req.session.currentUser.childsName) {
+          if (foundPortfolio) {
+            res.render(
+              'pages/show.ejs',
+              {
+                student: foundStudent,
+                portfolio: foundPortfolio,
+                currentUser: req.session.currentUser
+              }
+            )
+          } else {
+            res.render(
+              'pages/show.ejs',
+              {
+                student: foundStudent,
+                portfolio: null,
+                currentUser: req.session.currentUser
+              }
+            )
+          }
+        } else {
+          res.send('You cannot view a portfolio that does not belong to your child.')
+        }
+      })
+    })
+  }
 })
 
 /*-------------------- EDIT STUDENT DETAILS ---------------------*/
 
-router.get('/:id/edit', (req, res) => {
-  Student.findById(req.params.id, (err, foundStudent) => {
-    console.log(foundStudent);
-    res.render(
-      'pages/edit.ejs',
-      {
-        student: foundStudent,
-        currentUser: req.session.currentUser
-      }
-    )
-  })
+router.get('/:id/edit', isAuthenticated, (req, res) => {
+  if (req.session.currentUser.teacher === true) {
+    Student.findById(req.params.id, (err, foundStudent) => {
+      console.log(foundStudent);
+      res.render(
+        'pages/edit.ejs',
+        {
+          student: foundStudent,
+          currentUser: req.session.currentUser
+        }
+      )
+    })
+  } else {
+    res.redirect('/class')
+  }
 })
 
 /*------------- PUT (SEND DETAIL UPDATES) --------------*/
