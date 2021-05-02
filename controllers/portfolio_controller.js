@@ -33,7 +33,11 @@ portfolioRouter.post('/portfolio', (req, res) => {
 
 /*------------------- EDIT --------------------*/
 
-
+portfolioRouter.get('/portfolio/:studentId/edit', (req, res) => {
+  res.render(
+    'portfolio/edit.ejs'
+  )
+})
 
 
 
