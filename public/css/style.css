@@ -20,6 +20,7 @@ body {
   font-family: 'jost';
   font-size: 16px;
   color: var(--gray);
+  height: 100vh;
 }
 
 img {
@@ -55,9 +56,33 @@ nav {
   font-size: 1.3em;
 }
 
+#upper-nav {
+  margin-bottom: -140px;
+  margin-top: 40px;
+}
+
+header p {
+  width: auto;
+  font-weight: lighter;
+}
+
+#log-out {
+  border: none;
+  width: 100%;
+  font-family: 'jost';
+  font-size: .6em;
+  font-weight: 300;
+  transition: 1s;
+}
+
+#log-out:hover {
+  font-weight: 500;
+  color: var(--peach);
+}
+
 header a {
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1em;
   color: var(--gray);
   transition: .2s;
 }
@@ -71,7 +96,33 @@ header a:hover {
   Mobile Styles
 =====================================================================*/
 
-/*------------- HOME PAGE ----------------*/
+/*------------- LANDING PAGE ----------------*/
+
+#landing-main {
+  text-align: center;
+}
+
+#buttons {
+  margin-top: 50px;
+}
+
+#landing-btn {
+  margin: 15px 40px;
+  padding: 15px;
+  border: 1px solid var(--skyblue);
+  border-radius: 10px;
+  font-size: 1.4em;
+  text-decoration: none;
+  min-width: 200px;
+  color: var(--gray);
+  transition: .3s;
+}
+
+#landing-btn:hover {
+  color: var(--olive);
+}
+
+/*------------- HOME / CLASS PAGE ----------------*/
 
 .index-main {
   display: flex;

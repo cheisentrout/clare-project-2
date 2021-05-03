@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
+  <%- include ('../partials/head.ejs') %>
   <body>
 
     <div class="container">
-      <h1>This is the portfolio edit page</h1>
+      <%- include ('../partials/header.ejs') %>
+      <a href="/class/<%=student._id%>">Back</a>
+      <h1>Edit <%=student.name%>'s Portfolio</h1>
+      <form action="/portfolio/<%=student._id%>?_method=PUT" method="POST">
+        <input type="hidden" name="studentId" value="<%=student._id%>" />
+        <input type="hidden" name="studentName" value="<%=student.name%>" />
+        <section>
+          <h4>Cognitive</h4>
+          <input type="text" name="cognitive.img" value="<%=portfolio.cognitive.img%>" />
+          <input type="text" name="cognitive.quote" value="<%=portfolio.cognitive.quote%>" />
+          <input type="textarea" name="cognitive.description" value="<%=portfolio.cognitive.description%>" />
+        </section>
+        <section>
+          <h4>Social / Emotional</h4>
+          <input type="text" name="socioEmotional.img" value="<%=portfolio.socioEmotional.img%>">
+          <input type="text" name="socioEmotional.quote" value="<%=portfolio.socioEmotional.quote%>">
+          <input type="textarea" name="socioEmotional.description" value="<%=portfolio.socioEmotional.description%>">
+        </section>
+        <section>
+          <h4>Speech / Language</h4>
+          <input type="text" name="speechLang.img" value="<%=portfolio.speechLang.img%>">
+          <input type="text" name="speechLang.quote" value="<%=portfolio.speechLang.quote%>">
+          <input type="textarea" name="speechLang.description" value="<%=portfolio.speechLang.description%>">
+        </section>
+        <section>
+          <h4>Fine Motor</h4>
+          <input type="text" name="fineMotor.img" value="<%=portfolio.fineMotor.img%>">
+          <input type="text" name="fineMotor.quote" value="<%=portfolio.fineMotor.quote%>">
+          <input type="textarea" name="fineMotor.description" value="<%=portfolio.fineMotor.description%>">
+        </section>
+        <section>
+          <h4>Gross Motor</h4>
+          <input type="text" name="grossMotor.img" value="<%=portfolio.grossMotor.img%>">
+          <input type="text" name="grossMotor.quote" value="<%=portfolio.grossMotor.quote%>">
+          <input type="textarea" name="grossMotor.description" value="<%=portfolio.grossMotor.description%>">
+        </section>
+        <section>
+          <h4>Student Summary</h4>
+          <input type="textarea" name="summary" value="<%=portfolio.summary%>">
+        </section>
+        <input type="submit" value="Submit Changes">
+      </form>
     </div>
 
   </body>

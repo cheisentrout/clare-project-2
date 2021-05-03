@@ -1,12 +1,14 @@
 <header>
+  <nav id="upper-nav">
+    <p>Hello, <%=currentUser.username%>!</p>
+    <form action="/session?_method=DELETE" method="post">
+      <input type="submit" value="Log Out" id="log-out"/>
+    </form>
+  </nav>
   <a href="/class"><img src="/img/cc-logo.png" /></a>
   <div id="header-line"></div>
   <nav>
-    <h5>Hello, <%=currentUser.username%>!</h5>
     <a href="/class" class="anchor-btn">Home</a>
     <a href='/class/enroll' class="anchor-btn">Enroll</a>
-    <form action="/session?_method=DELETE" method="post">
-      <input type="submit" value="Log Out" />
-    </form>
   </nav>
 </header>

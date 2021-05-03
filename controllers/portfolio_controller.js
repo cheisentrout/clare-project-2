@@ -45,18 +45,35 @@ portfolioRouter.post('/portfolio', (req, res) => {
 
 portfolioRouter.get('/portfolio/:studentId/edit', isAuthenticated, (req, res) => {
   if (req.session.currentUser.teacher === true) {
-    res.render(
-      'portfolio/edit.ejs',
-    )
+    Student.findOne({_id: req.params.studentId}, (err, foundStudent) => {
+      console.log(foundStudent);
+      Portfolio.findOne({studentId: req.params.studentId}, (err2, foundPortfolio) => {
+        console.log(foundPortfolio);
+        res.render(
+          'portfolio/edit.ejs',
+          {
+            portfolio: foundPortfolio,
+            currentUser: req.session.currentUser,
+            student: foundStudent
+          }
+        )
+      })
+    })
   }
 })
 
-
-
-
 /*------------------- PUT --------------------*/
 
-
+portfolioRouter.put('/portfolio/:studentId', (req, res) => {
+  Portfolio.findByIdAndUpdate(req.params.studentId, req.body, (err, updatedPortfolio) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(updatedPortfolio);
+    }
+    res.redirect('/class')
+  })
+})
 
 
 module.exports = portfolioRouter

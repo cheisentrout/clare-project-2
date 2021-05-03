@@ -18,33 +18,35 @@
 
           <% if (currentUser.teacher === true) { %>
             <a href="/class/<%=student._id%>/edit" id="edit-details">Edit Details</a>
-            <a href="/portfolio/<%=student._id%>" id="edit-portfolio">Edit Portfolio</a>
+            <a href="/portfolio/<%=student._id%>/edit" id="edit-portfolio">Edit Portfolio</a>
 
-          <%  //This returns the foundPortfolio's keys:
-            const mainKeys = Object.keys(portfolio.toJSON())
-            console.log('Five areas of development: ' + mainKeys);
-            //This variable, mainValues, holds the nested objects for each developmental area, each of which contains the keys of img, quote, and description:
-            const mainValues = Object.values(portfolio.toJSON())
-            // mainValues.forEach(value => console.log(typeof value))
-            //This function iterates through each nested object and logs the key/value pairs:
-            mainValues.forEach(value => {
-              const subKeys = Object.keys(value)
-              const subValues = Object.values(value)
-              if (typeof value === 'object') {
-                // console.log(subKeys);
-                // console.log(subValues);
-                for (let i = 0; i < subKeys.length; i++) {
-                  if ((subValues[i] !== "") && (subKeys[i] === 'img' || 'quote' || 'description')) {
+          <%  if (portfolio) {
+            //This returns the foundPortfolio's keys:
+              const mainKeys = Object.keys(portfolio.toJSON())
+              console.log('Five areas of development: ' + mainKeys);
+              //This variable, mainValues, holds the nested objects for each developmental area, each of which contains the keys of img, quote, and description:
+              const mainValues = Object.values(portfolio.toJSON())
+              // mainValues.forEach(value => console.log(typeof value))
+              //This function iterates through each nested object and logs the key/value pairs:
+              mainValues.forEach(value => {
+                const subKeys = Object.keys(value)
+                const subValues = Object.values(value)
+                if (typeof value === 'object') {
+                  // console.log(subKeys);
+                  // console.log(subValues);
+                  for (let i = 0; i < subKeys.length; i++) {
+                    if ((subValues[i] !== "") && (subKeys[i] === 'img' || 'quote' || 'description')) {
 
-                    console.log(`${subKeys[i]} is complete: ${subValues[i]}`);
-                  } else if (subKeys[i] === 'img' || 'quote' || 'description') {
-                    console.log('NOT COMPLETE');
-                  } else {
-                    null
+                      console.log(`${subKeys[i]} is complete: ${subValues[i]}`);
+                    } else if (subKeys[i] === 'img' || 'quote' || 'description') {
+                      console.log('NOT COMPLETE');
+                    } else {
+                      null
+                    }
                   }
                 }
-              }
-            }) %>
+              })
+            } %>
 
             <!-- <div>
               <ul id="to-do">
