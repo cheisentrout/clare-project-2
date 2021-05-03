@@ -237,8 +237,6 @@ router.get('/:id/edit', isAuthenticated, (req, res) => {
         }
       )
     })
-  } else {
-    res.redirect('/class')
   }
 })
 

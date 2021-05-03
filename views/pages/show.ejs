@@ -15,8 +15,21 @@
           <h1><%=student.name%></h1>
           <a href="#" id="view-details">View Details</a>
           <a href="#" id="view-portfolio">View Portfolio</a>
-          <a href="/class/<%=student._id%>/edit" id="edit-details">Edit Details</a>
-          <a href="/portfolio/<%=student._id%>/edit" id="edit-portfolio">Edit Portfolio</a>
+
+          <% if (currentUser.teacher === true) { %>
+            <a href="/class/<%=student._id%>/edit" id="edit-details">Edit Details</a>
+            <a href="/portfolio/<%=student._id%>/edit" id="edit-portfolio">Edit Portfolio</a>
+
+            <div>
+              <ul id="to-do">
+                
+              </ul>
+              <ul id="done">
+
+              </ul>
+            </div>
+          <% } %>
+
         </section>
 
         <section id="details" class="hidden main-area">

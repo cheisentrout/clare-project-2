@@ -4,6 +4,21 @@ const Student = require('../models/students.js')
 const Portfolio = require('../models/portfolio.js')
 const User = require('../models/users.js')
 
+/*------------ CHECK FOR LOGGED IN USER ------------*/
+
+const isAuthenticated = (req, res, next) => {
+  if (req.session.currentUser) {
+    // if (req.session.currentUser.teacher === false) {
+    //   console.log('Current user is a caregiver.');
+    //   console.log(req.session.currentUser.childsName);
+    // } else if (req.session.currentUser.teacher === true){
+    //   console.log('Current user is a TEACHER.');
+    // }
+    return next()
+  } else {
+    res.redirect('/user/new')
+  }
+}
 
 /*------------------- CREATE NEW PORTFOLIO --------------------*/
 
@@ -33,10 +48,12 @@ portfolioRouter.post('/portfolio', (req, res) => {
 
 /*------------------- EDIT --------------------*/
 
-portfolioRouter.get('/portfolio/:studentId/edit', (req, res) => {
-  res.render(
-    'portfolio/edit.ejs'
-  )
+portfolioRouter.get('/portfolio/:studentId/edit', isAuthenticated, (req, res) => {
+  if (req.session.currentUser.teacher === true) {
+    res.render(
+      'portfolio/edit.ejs',
+    )
+  }
 })
 
 
