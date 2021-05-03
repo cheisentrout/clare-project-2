@@ -8,12 +8,6 @@ const User = require('../models/users.js')
 
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
-    // if (req.session.currentUser.teacher === false) {
-    //   console.log('Current user is a caregiver.');
-    //   console.log(req.session.currentUser.childsName);
-    // } else if (req.session.currentUser.teacher === true){
-    //   console.log('Current user is a TEACHER.');
-    // }
     return next()
   } else {
     res.redirect('/user/new')

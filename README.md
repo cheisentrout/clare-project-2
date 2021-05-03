@@ -32,6 +32,8 @@ Link to live site: https://clare-project-2.herokuapp.com/class
 
 ### Day 5
 
+- This morning I started playing around with iterating over data returned from MongoDB. I want to be able to represent which parts of a student's portfolio are complete, and which still need to be filled out, so I needed to be able to access my Schema's keys and values. Initially, using Object.keys() and Object.values() on the returned data gave me unrecognizable variables, which must be built-in Mongo information? This problem was solved by a Stack Overflow article (https://stackoverflow.com/questions/44833736/object-keys-returns-unexpected-keys-on-mongodb-object-from-collection/44833913) that helped me format the data returned by the above methods using .toJSON().
+
 ## Potential Improvements
 
 - Creating an account routes a user directly to home page, rather than making them login.
