@@ -13,12 +13,12 @@
             <img class="student-photo" src="<%=student.img%> alt="Student picture" />
           <% } %>
           <h1><%=student.name%></h1>
-          <a href="#" id="view-details">View Details</a>
-          <a href="#" id="view-portfolio">View Portfolio</a>
+          <a href="#" id="view-portfolio" class="show-opts">View Portfolio</a>
 
           <% if (currentUser.teacher === true) { %>
-            <a href="/class/<%=student._id%>/edit" id="edit-details">Edit Details</a>
-            <a href="/portfolio/<%=student._id%>/edit" id="edit-portfolio">Edit Portfolio</a>
+            <a href="#" id="view-details" class="show-opts">View Details</a>
+            <a href="/portfolio/<%=student._id%>/edit" id="edit-portfolio" class="show-opts">Edit Portfolio</a>
+            <a href="/class/<%=student._id%>/edit" id="edit-details" class="show-opts">Edit Details</a>
 
           <%  if (portfolio) {
             //This returns the foundPortfolio's keys:
@@ -47,16 +47,7 @@
                 }
               })
             } %>
-
-            <!-- <div>
-              <ul id="to-do">
-                <li>Test</li>
-              </ul>
-              <ul id="done">
-                <li>Test</li>
-              </ul>
-            </div>
-          <% } %> -->
+        <% } %>
 
         </section>
 
@@ -66,10 +57,12 @@
           <p>Enrollment Status: <%=student.enrollment%></p>
           <p>Allergies: <%=student.allergies%></p>
           <p>Notes: <%=student.notes%></p>
-          <a href="/class/<%=student._id%>/edit" class="anchor-btn">Edit</a>
-          <form action="/class/<%=student._id%>?_method=DELETE" method="post">
-            <input type="submit" value="Unenroll">
-          </form>
+          <div id="edit-options">
+            <a href="/class/<%=student._id%>/edit" id="det-edit-btn">Edit</a>
+            <form action="/class/<%=student._id%>?_method=DELETE" method="post" id="unenroll-btn">
+              <input type="submit" value="Unenroll">
+            </form>
+          </div>
         </section>
 
         <section id="portfolio" class="hidden main-area">

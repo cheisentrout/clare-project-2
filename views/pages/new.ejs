@@ -7,21 +7,21 @@
       <%- include ('../partials/header.ejs') %>
       <h1>Enroll New Student</h1>
       <form action="/class" method="POST">
-        Name:
+        <h5>Name:</h5>
           <input type="text" name="name" placeholder="Name" />
-        Student Photo:
+        <h5>Photo:</h5>
           <input type="text" name="img" placeholder="Image Link">
-        Date of Birth:
+        <h5>Date of Birth:</h5>
           <input type="date" name="dob" placeholder="Date of birth" />
-        Address:
+        <h5>Address:</h5>
           <input type="text" name="address" placeholder="Address">
-        Parents:
+        <h5>Caregivers:</h5>
           <input type="text" name="parents" placeholder="Parent/Caregiver Names" />
-        Allergies:
+        <h5>Allergies:</h5>
           <input type="text" name="allergies" placeholder="Allergies">
-        Enrollment Status:
+        <h5>Enrollment Status:</h5>
           <input type="text" name="enrollment" placeholder="Full Day / Half Day" />
-        Notes:
+        <h5>Notes:</h5>
           <input type="textarea" name="notes" placeholder="Notes...">
         <input type="submit" value="Enroll Student">
       </form>

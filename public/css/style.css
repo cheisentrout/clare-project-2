@@ -30,6 +30,21 @@ img {
   object-fit: cover;
 }
 
+input {
+  color: var(--gray);
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  border: 1px solid var(--skyblue);
+  transition: .3s;
+}
+
+input[type="submit"]:hover {
+  color: var(--peach)
+}
+
 /*====================================================================
   PARTIALS
 =====================================================================*/
@@ -116,10 +131,53 @@ header a:hover {
   min-width: 200px;
   color: var(--gray);
   transition: .3s;
+  cursor: pointer;
 }
 
 #landing-btn:hover {
   color: var(--olive);
+}
+
+/*------------- HOME / CLASS PAGE ----------------*/
+
+#new-user {
+  text-align: center;
+}
+
+#teacher-btn, #caregiver-btn {
+  margin: 15px 40px;
+  padding: 15px;
+  border: 1px solid var(--skyblue);
+  border-radius: 10px;
+  font-size: 1.4em;
+  text-decoration: none;
+  min-width: 200px;
+  color: var(--gray);
+  transition: .3s;
+  cursor: pointer;
+}
+
+#teacher-btn:hover, #caregiver-btn:hover {
+  color: var(--olive);
+}
+
+#teacher-btn:visited, #caregiver-btn:visited {
+  color: var(--olive);
+}
+
+#teacher-register, #caregiver-register {
+  margin-top: 50px;
+  text-align: left;
+}
+
+#create-account, #login-btn {
+  border: 1px solid var(--skyblue);
+  font-family: 'jost';
+  transition: .2s
+}
+
+#create-account:hover, #login-btn:hover {
+  color: var(--peach);
 }
 
 /*------------- HOME / CLASS PAGE ----------------*/
@@ -203,35 +261,71 @@ h1 {
   /* background-color: pink; */
 }
 
+#portfolio {
+  margin-top: 50px;
+  text-align: center;
+}
+
 #view-details, #view-portfolio, #edit-details, #edit-portfolio {
   width: 75%;
   margin: 10px 15px;
   box-sizing: border-box;
   text-align: center;
   font-size: 1em;
-}
-
-#edit-portfolio, #edit-details, #view-portfolio, #view-details {
   text-decoration: none;
   padding: 5px 20px;
   border: 1px solid gray;
   border-radius: 10px;
+  transition: .4s;
+}
+
+#view-details:hover, #view-portfolio:hover, #edit-details:hover, #edit-portfolio:hover {
+  color: var(--aquamarine);
+  border: 1px solid var(--peach);
+}
+
+#details {
+  margin-top: 20px;
+  padding: 30px;
+  border: 2px solid var(--skyblue);
+  border-radius: 10px;
+}
+
+#edit-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+#det-edit-btn, #unenroll-btn {
+  width: 40%;
+  text-align: center;
+  border: none;
+  text-transform: none;
+}
+
+#cognitive, #socioEmotional, #speechLang, #fineMotor, #grossMotor, #summary {
+  color: var(--olive);
+  transition: .3s;
+}
+
+#cognitive:hover, #socioEmotional:hover, #speechLang:hover, #fineMotor:hover, #grossMotor:hover, #summary:hover {
+  color: var(--peach);
 }
 
 /*------------- EDIT PAGE ----------------*/
 
 #back {
   text-decoration: none;
-  color: var(--olive);
+  color: var(--gray);
   padding: 3px 10px;;
-  border: 2px solid var(--teal);
+  border: 1px solid var(--skyblue);
   border-radius: 10px;
   margin: 10px auto;
   transition: .3s;
 }
 
 #back:hover {
-  color: var(--skyblue);
+  color: var(--peach);
 }
 
 form {
@@ -248,16 +342,26 @@ input {
   width: 70%;
 }
 
-input[name="notes"] {
-  height: 150px;
-  width: 70%;
+/*------------- NEW STUDENT PAGE ----------------*/
+
+h5 {
+  color: var(--teal)
 }
 
-/*------------- NEW PAGE ----------------*/
+/*------------- EDIT PORTFOLIO ----------------*/
 
+#portfolio-edit section {
+  width: 100%;
+}
 
+input[type="textarea"] {
+  min-height: 100px;
+  size: auto;
+}
 
-
+#portfolio-edit h4 {
+  color: var(--teal);
+}
 
 /*====================================================================
   Tablet Styles

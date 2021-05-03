@@ -12,33 +12,37 @@
           <a href='/sessions/login' class="anchor-btn">Log In</a>
         </nav>
       </header>
-      <h1>Create an Account</h1>
-      <p>Are you a teacher, or a caregiver?</p>
-      <button id="teacher-btn">Teacher</button>
-      <button id="caregiver-btn">Caregiver</button>
+      <main id="new-user">
+        <h1>Create an Account</h1>
+        <p>Are you a teacher, or a caregiver?</p>
+        <div id=buttons>
+          <a id="teacher-btn">Teacher</a>
+          <a id="caregiver-btn">Caregiver</a>
+        </div>
 
-      <form action="/user" method="post" class="hidden" id="teacher-register">
-        <h5>Username:</h5>
-          <input type="text" name="username" placeholder="username" />
-        <h5>Password:</h5>
-          <input type="text" name="password" placeholder="password" />
-        <%# This form is for TEACHERS, and sets the user Schema to parent: false, teacher: true %>
-        <input type="hidden" name="teacher" value="true" />
-        <input type="hidden" name="childsName" value="n/a">
-        <input type="submit" value="Create Account">
-      </form>
+        <form action="/user" method="post" class="hidden" id="teacher-register">
+          <h5>Username:</h5>
+            <input type="text" name="username" placeholder="username" />
+          <h5>Password:</h5>
+            <input type="password" name="password" placeholder="password" />
+          <%# This form is for TEACHERS, and sets the user Schema to parent: false, teacher: true %>
+          <input type="hidden" name="teacher" value="true" />
+          <input type="hidden" name="childsName" value="n/a">
+          <input type="submit" value="Create Account" id="create-account" />
+        </form>
 
-      <form action="/user" method="post" id="caregiver-register" class="hidden">
-        <h5>Username:</h5>
-          <input type="text" name="username" placeholder="username" />
-        <h5>Password:</h5>
-          <input type="text" name="password" placeholder="password" />
-        <h5>Child's Name</h5>
-          <input type="text" name="childsName" placeholder="child's name"/>
-        <%# This form is for PARENTS, and sets the user Schema to parent: true, teacher: false %>
-        <input type="hidden" name="teacher" value="false" />
-        <input type="submit" value="Create Account" />
-      </form>
+        <form action="/user" method="post" id="caregiver-register" class="hidden">
+          <h5>Username:</h5>
+            <input type="text" name="username" placeholder="username" />
+          <h5>Password:</h5>
+            <input type="password" name="password" placeholder="password" />
+          <h5>Child's Name</h5>
+            <input type="text" name="childsName" placeholder="child's name"/>
+          <%# This form is for PARENTS, and sets the user Schema to parent: true, teacher: false %>
+          <input type="hidden" name="teacher" value="false" />
+          <input type="submit" value="Create Account" id="create-account" />
+        </form>
+      </main>
 
     </div>
   <%- include ('../partials/footer.ejs') %>
