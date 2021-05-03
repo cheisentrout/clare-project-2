@@ -266,7 +266,7 @@ h1 {
   text-align: center;
 }
 
-#view-details, #view-portfolio, #edit-details, #edit-portfolio {
+#view-details, #view-portfolio, #edit-details, #edit-portfolio, #start-portfolio {
   width: 75%;
   margin: 10px 15px;
   box-sizing: border-box;
@@ -279,7 +279,7 @@ h1 {
   transition: .4s;
 }
 
-#view-details:hover, #view-portfolio:hover, #edit-details:hover, #edit-portfolio:hover {
+#view-details:hover, #view-portfolio:hover, #edit-details:hover, #edit-portfolio:hover, #start-portfolio:hover {
   color: var(--aquamarine);
   border: 1px solid var(--peach);
 }
@@ -301,6 +301,10 @@ h1 {
   text-align: center;
   border: none;
   text-transform: none;
+}
+
+#portfolio section {
+  margin-top: 20px;
 }
 
 #cognitive, #socioEmotional, #speechLang, #fineMotor, #grossMotor, #summary {
@@ -361,6 +365,10 @@ input[type="textarea"] {
 
 #portfolio-edit h4 {
   color: var(--teal);
+}
+
+#create-portfolio section {
+  width: 100%;
 }
 
 /*====================================================================

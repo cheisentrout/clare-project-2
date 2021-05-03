@@ -7,7 +7,7 @@
       <%- include ('../partials/header.ejs') %>
       <a href="/class/<%=student._id%>">Back</a>
       <h1>Create <%=student.name%>'s Portfolio</h1>
-      <form action="/portfolio" method="POST">
+      <form action="/portfolio" method="POST" id="create-portfolio">
         <input type="hidden" name="studentId" value="<%=student._id%>" />
         <input type="hidden" name="studentName" value="<%=student.name%>" />
         <section>

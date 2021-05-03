@@ -17,7 +17,11 @@
 
           <% if (currentUser.teacher === true) { %>
             <a href="#" id="view-details" class="show-opts">View Details</a>
+          <%  if (portfolio === null) { %>
+            <a href="/portfolio/<%=student._id%>" id="start-portfolio" class="show-opts">Start Portfolio</a>
+          <% } else if (portfolio !== null) { %>
             <a href="/portfolio/<%=student._id%>/edit" id="edit-portfolio" class="show-opts">Edit Portfolio</a>
+          <% } %>
             <a href="/class/<%=student._id%>/edit" id="edit-details" class="show-opts">Edit Details</a>
 
           <%  if (portfolio) {

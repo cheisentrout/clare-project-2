@@ -63,7 +63,7 @@ const portfolioBtn = document.getElementById('view-portfolio')
 
 const deetsOrPort = document.querySelectorAll('.main-area')
 
-if (detailsBtn, portfolioBtn) {
+if (detailsBtn) {
 
   detailsBtn.addEventListener('click', () => {
     // hideNotSelected(deetsOrPort)
@@ -75,6 +75,9 @@ if (detailsBtn, portfolioBtn) {
     }
     //Add some CSS that tells you which button is selected!!!! Class of visible
   })
+}
+
+if (portfolioBtn) {
 
   portfolioBtn.addEventListener('click', () => {
     // hideNotSelected(deetsOrPort)

@@ -206,7 +206,8 @@ router.get('/:id', isAuthenticated, (req, res) => {
                 currentUser: req.session.currentUser
               }
             )
-          } else {
+          }
+          else {
             res.render(
               'pages/show.ejs',
               {
