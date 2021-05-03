@@ -169,19 +169,6 @@ router.get('/:id', isAuthenticated, (req, res) => {
     Student.findById(req.params.id, (err, foundStudent) => {
       Portfolio.findOne({ studentId: req.params.id } , (err2, foundPortfolio) => {
         if (foundPortfolio) {
-          //This returns the foundPortfolio's keys:
-          const mainKeys = Object.keys(foundPortfolio.toJSON())
-          console.log('Five areas of development: ' + mainKeys);
-          //This returns the nested objects for each developmental area, which contain the keys of img, quote, and description:
-          const mainValues = Object.values(foundPortfolio.toJSON())
-          //This function iterates through each nested object and logs the key/value pairs:
-          mainValues.forEach(value => {
-            const subKeys = Object.keys(value)
-            const subValues = Object.values(value)
-            for (let i = 0; i < subKeys.length; i++) {
-              console.log(subKeys[i] + ": " + subValues[i]);
-            }
-          })
           res.render(
             'pages/show.ejs',
             {

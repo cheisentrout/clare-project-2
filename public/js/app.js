@@ -23,6 +23,13 @@ const hideNotSelected = (section) => {
   })
 }
 
+// const toDoList = document.getElementById('to-do')
+// const doneList = document.getElementById('done')
+//
+// const appendLi = (toWhat, newLi) => {
+//   let newLi = document.createElement('li')
+// }
+
 /*=======================================================
 ------------------ CREATE ACCOUNT PAGE ------------------
 ========================================================*/

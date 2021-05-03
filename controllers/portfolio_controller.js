@@ -21,7 +21,8 @@ portfolioRouter.get('/portfolio/:studentId', (req, res) => {
     res.render(
       'portfolio/new.ejs',
       {
-        student: foundStudent
+        student: foundStudent,
+        currentUser: req.session.currentUser
       }
     )
   })
@@ -33,7 +34,7 @@ portfolioRouter.post('/portfolio', (req, res) => {
   // res.send(req.body)
   let studentId = req.params.studentId
   Portfolio.create(req.body, (err, createdPortfolio) => {
-    res.redirect('/')
+    res.redirect('/class')
   })
 })
 
