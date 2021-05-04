@@ -18,9 +18,9 @@ As my project is now, it allows teachers to enroll and disenroll students from t
 - EJS
 - Heroku
 
-## User Stories and Wireframes
+<!-- ## User Stories and Wireframes
 
-![Conference Confidant](img/totbot.pdf)
+![Conference Confidant](img/totbot.pdf) -->
 
 ## Known Remaining Bugs
 
@@ -63,6 +63,6 @@ As my project is now, it allows teachers to enroll and disenroll students from t
 - Parental alerts for why they can't access certain pages - right now, if the permission is forbidden, they're just sent a simple res.send() message. (Using a res.redirect() and an alert did not work here.)
 - Making sure the site is fully responsive and looks good cross-devices.
 
-##Summary
+## Summary
 
 This was a really fun project to work on, as it took me back to my teaching days! I found it educational to set up multiple routers and data Schemas, and learn how to work with nested database calls. One of my goals for this project was to write DRYer static JS, which I think I did... alright at!
