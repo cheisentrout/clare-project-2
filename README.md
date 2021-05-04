@@ -2,7 +2,7 @@
 
 ## Overview
 
-Link to live site: https://clare-project-2.herokuapp.com/class
+Link to live site: https://clare-project-2.herokuapp.com/
 
 As a former early childhood education teacher, I wanted to create an app for teachers (and caregivers) that would ease the "parent/teacher conference" experience! One of my duties as a teacher was to create developmental portfolios for each student in my class, spanning the five main areas of early childhood development. The portfolio needed to have an image, quote, and description representing where the student was in each area of development.
 
